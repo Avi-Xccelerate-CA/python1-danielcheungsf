@@ -17,15 +17,11 @@ def dose(needs):
     # needs = [int(x) for x in needs.split(",")]
     if sum(needs) >= 500 or any(x >= 250 for x in needs):
         return "No medicine given"
-    else:
-        result = []
-        for need in needs:
-            vitamins = math.ceil(need / 10)
-            if need % 10 == 0:
-                injections = 0
-            else:
-                injections = 10 - (need % 10)
-            result.append((vitamins, injections))
-        return result
+    result = []
+    for need in needs:
+        vitamins = math.ceil(need / 10)
+        injections = 0 if need % 10 == 0 else 10 - (need % 10)
+        result.append((vitamins, injections))
+    return result
     #YOUR SOLUTION ENDS HERE
 
