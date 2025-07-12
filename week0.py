@@ -13,6 +13,15 @@
 # HINT: using % operator to find remainder may be helpful
 def dose(needs):
     #YOUR SOLUTION STARTS HERE
-
+    needs = [int(x) for x in needs.split(",")]
+    if sum(needs) >= 500 or any(x >= 250 for x in needs):
+        return "No medicine given"
+    else:
+        result = []
+        for need in needs:
+            vitamins = need // 10
+            injections = 10 - need % 10
+            result.append((vitamins, injections))
+        return result
     #YOUR SOLUTION ENDS HERE
 
